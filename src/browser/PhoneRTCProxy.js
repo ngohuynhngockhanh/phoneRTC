@@ -1,4 +1,4 @@
-cordova.define("com.dooble.phonertc.PhoneRTCProxy", function(require, exports, module) { var PeerConnection = window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+var PeerConnection = window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
 var IceCandidate = window.mozRTCIceCandidate || window.RTCIceCandidate;
 var SessionDescription = window.mozRTCSessionDescription || window.RTCSessionDescription;
 var MediaStream = window.webkitMediaStream || window.mozMediaStream || window.MediaStream;
@@ -169,7 +169,7 @@ Session.prototype.call = function () {
         { 
           url: self.config.turn.host, 
           username: self.config.turn.username, 
-          password: self.config.turn.password 
+          credential: self.config.turn.password 
         }
       ]
     }, { optional: [ { DtlsSrtpKeyAgreement: true } ]});
@@ -499,4 +499,3 @@ function onSessionDisconnect(sessionKey) {
 }
 
 require("cordova/exec/proxy").add("PhoneRTCPlugin", module.exports);
-});

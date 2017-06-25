@@ -1,4 +1,5 @@
-cordova.define("com.dooble.phonertc.PhoneRTC", function(require, exports, module) { var exec = require('cordova/exec');
+
+  var exec = require('cordova/exec');
 var videoViewConfig;
 
 function createUUID() {
@@ -208,4 +209,3 @@ exports.showVideoView = function () {
 exports.checkPermissions = function (success, fail) {
   exec(success, fail, 'PhoneRTCPlugin', 'checkPermissions', []);
 };
-});
